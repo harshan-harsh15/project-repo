@@ -1,29 +1,42 @@
-name: Node.js CI
+name: Node.js Backend CI
 
 on:
   push:
-    branches: [ "main" ]  
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  build:
+  backend:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}  
+      DATABASE_URL: ${{ secrets.DATABASE_URL }} # your Render Postgres URL
 
     steps:
-      
+      # 1️⃣ Checkout the repo
       - uses: actions/checkout@v4
 
-    
+      # 2️⃣ Setup Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      
+      # 3️⃣ Install backend dependencies
       - name: Install dependencies
         run: npm install
         working-directory: ./backend
 
-      - name: Run backend
-        run: npm start
-        working-directory: ./backend
+      # 4️⃣ Optional: Run backend health check
+      - name: Start backend and test
+        run: |
+          # Start server in background
+          node ./backend/server.js &
+          SERVER_PID=$!
+          echo "Waiting for backend to start..."
+          sleep 5
+          
+          # Test health endpoint
+          curl -f http://localhost:5000/health
+          
+          # Kill backend after test
+          kill $SERVER_PID
