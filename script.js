@@ -64,7 +64,7 @@ if (form) {
         };
 
         try {
-            const res = await fetch("https://project-portfolio-5d7u.onrender.com/submit", {
+            const res = await fetch("https://project-repo-nq1e.onrender.com/submit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
