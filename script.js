@@ -1,4 +1,4 @@
-// ================= SMOOTH SCROLL =================
+
 document.querySelectorAll("a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
@@ -11,7 +11,7 @@ document.querySelectorAll("a[href^='#']").forEach(anchor => {
 });
 
 
-// ================= SCROLL REVEAL =================
+
 const sections = document.querySelectorAll("section");
 
 function revealSections() {
@@ -31,7 +31,7 @@ window.addEventListener("scroll", revealSections);
 window.addEventListener("load", revealSections);
 
 
-// ================= NAVBAR EFFECT =================
+
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
@@ -46,8 +46,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-// ================= CONTACT FORM =================
-// ================= CONTACT FORM =================
+
 const form = document.getElementById("contactForm");
 
 if (form) {
@@ -73,14 +72,14 @@ if (form) {
             });
 
             if (res.ok) {
-                button.textContent = "Message Sent ✅";
+                button.textContent = "Message Sent ";
                 form.reset();
             } else {
-                button.textContent = "Error ❌";
+                button.textContent = "Error ";
             }
         } catch (err) {
             console.log(err);
-            button.textContent = "Failed ❌";
+            button.textContent = "Failed ";
         }
 
         setTimeout(() => {
@@ -89,7 +88,7 @@ if (form) {
     });
 }
 
-// ================= TYPING EFFECT =================
+
 const text = "Web Developer • Building Real Projects";
 const typingElement = document.querySelector(".hero-box p");
 
@@ -109,7 +108,7 @@ if (typingElement) {
 }
 
 
-// ================= PROJECT CARD TILT EFFECT (🔥) =================
+
 const cards = document.querySelectorAll(".project-card");
 
 cards.forEach(card => {
