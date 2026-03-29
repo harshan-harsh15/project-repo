@@ -1,4 +1,4 @@
-/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -101,10 +101,12 @@ body {
     border-radius: 8px;
     text-decoration: none;
     transition: 0.3s;
+    margin-top: 15px;
 }
 
 .primary-btn:hover {
     background: #0ea5e9;
+    transform: translateY(-2px);
 }
 
 /* SECTION */
@@ -122,16 +124,43 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    align-items: center;
 }
 
 /* CARD */
 .card {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:first-child {
+    align-items: center;
+}
+
+/* PROFILE PHOTO */
+.profile-photo {
+    width: 100%;
+    max-width: 280px;
+    height: 280px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #38bdf8;
+    transition: 0.3s;
+}
+
+.profile-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 /* ABOUT LIST */
 .card ul {
     list-style: none;
+    text-align: left;
 }
 
 .card ul li {
@@ -261,5 +290,10 @@ section {
 
     .hero-box h1 {
         font-size: 2rem;
+    }
+
+    .profile-photo {
+        max-width: 200px;
+        height: 200px;
     }
 }
